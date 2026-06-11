@@ -600,6 +600,7 @@ export const deploymentHistory = [
     deployedOn: "Jun 9, 2026 09:22",
     version: "v2.14.0",
     details: "Backend and API service release",
+    deployedBy: "Sarah Chen",
   },
   {
     id: 2,
@@ -608,6 +609,7 @@ export const deploymentHistory = [
     deployedOn: "Jun 8, 2026 16:43",
     version: "v2.14.0-rc",
     details: "Smoke test completed",
+    deployedBy: "Marcus Thompson",
   },
   {
     id: 3,
@@ -616,6 +618,7 @@ export const deploymentHistory = [
     deployedOn: "Jun 7, 2026 13:10",
     version: "v2.14.0-canary",
     details: "Partial rollout in progress",
+    deployedBy: "Jennifer Liu",
   },
   {
     id: 4,
@@ -624,5 +627,6 @@ export const deploymentHistory = [
     deployedOn: "Jun 5, 2026 10:05",
     version: "v2.13.5",
     details: "Hotfix for release rollback",
+    deployedBy: "Alex Rodriguez",
   },
 ];

@@ -137,14 +137,17 @@ export default function CTODashboard() {
             <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50">
               <div className="grid gap-0 divide-y divide-slate-200">
                 {deploymentHistory.map((release) => (
-                  <div key={release.id} className="flex flex-col gap-3 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="font-semibold text-slate-950">{release.environment} • {release.version}</p>
-                      <p className="mt-1 text-xs text-slate-500">{release.deployedOn} • {release.details}</p>
+                  <div key={release.id} className="flex flex-col gap-3 px-5 py-4">
+                    <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                      <div className="flex-1">
+                        <p className="font-semibold text-slate-950">{release.environment} • {release.version}</p>
+                        <p className="mt-1 text-xs text-slate-500">{release.deployedOn} • {release.details}</p>
+                        <p className="mt-2 text-xs text-slate-600">Deployed by: <span className="font-semibold text-slate-950">{release.deployedBy}</span></p>
+                      </div>
+                      <span className={`rounded-full px-3 py-1 text-xs font-semibold ${deploymentStatusColor(release.status)}`}>
+                        {release.status}
+                      </span>
                     </div>
-                    <span className={`rounded-full px-3 py-1 text-xs font-semibold ${deploymentStatusColor(release.status)}`}>
-                      {release.status}
-                    </span>
                   </div>
                 ))}
               </div>
