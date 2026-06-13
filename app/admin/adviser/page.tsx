@@ -44,55 +44,61 @@ export default function AdviserDashboard() {
             ))}
           </section>
 
-          <section className="rounded-[2rem] bg-white p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Strategic metrics</p>
-                <h2 className="mt-2 text-2xl font-semibold text-slate-950">Company-level strategy scorecard</h2>
-              </div>
-              <span className="rounded-3xl bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-700">
-                Read-only view
-              </span>
-            </div>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {strategyMetrics.map((metric) => (
-                <div key={metric.metric} className="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
-                  <p className="text-sm font-semibold text-slate-900">{metric.metric}</p>
-                  <p className="mt-3 text-3xl font-semibold text-slate-950">{metric.value}</p>
-                  <p className="mt-2 text-sm text-slate-600">{metric.description}</p>
+          <section className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr]">
+            <div className="rounded-[2rem] bg-white p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Strategic metrics</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-slate-950">Advisory scorecard</h2>
                 </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="rounded-[2rem] bg-white p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Executive reports</p>
-                <h2 className="mt-2 text-2xl font-semibold text-slate-950">Read-only analytics & reports</h2>
+                <span className="rounded-3xl bg-slate-100 px-3 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-700">
+                  High priority
+                </span>
               </div>
-              <p className="text-sm text-slate-600">Company-wide insights compiled for the advisory board.</p>
+
+              <div className="mt-6 space-y-4">
+                {strategyMetrics.map((metric) => (
+                  <div key={metric.metric} className="grid gap-4 rounded-[1.75rem] border border-slate-200 bg-slate-50 p-5 sm:grid-cols-[1.1fr_0.9fr]">
+                    <div>
+                      <p className="text-sm font-semibold text-slate-900">{metric.metric}</p>
+                      <p className="mt-2 text-sm text-slate-600">{metric.description}</p>
+                    </div>
+                    <p className="text-right text-3xl font-semibold text-slate-950 sm:text-4xl">{metric.value}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-6 grid gap-4 lg:grid-cols-3">
-              {executiveReports.map((report) => (
-                <div key={report.title} className="rounded-3xl bg-slate-50 p-4 ring-1 ring-slate-200">
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <p className="font-semibold text-slate-950">{report.title}</p>
-                    <span className="inline-flex rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">
-                      {report.format}
-                    </span>
-                  </div>
-                  <div className="space-y-2 text-sm text-slate-600">
-                    <p>
-                      <span className="font-semibold text-slate-900">Coverage:</span> {report.coverage}
-                    </p>
-                    <p>
-                      <span className="font-semibold text-slate-900">Generated:</span> {report.lastGenerated}
-                    </p>
-                  </div>
+            <div className="rounded-[2rem] bg-white p-6 shadow-lg shadow-slate-200/60 ring-1 ring-slate-200">
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">Executive reports</p>
+                  <h2 className="mt-2 text-2xl font-semibold text-slate-950">Operational intelligence</h2>
                 </div>
-              ))}
+                <p className="text-sm text-slate-600">Latest analytics available for leadership review.</p>
+              </div>
+
+              <div className="mt-6 space-y-4">
+                {executiveReports.map((report) => (
+                  <div key={report.title} className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-5">
+                    <div className="flex items-center justify-between gap-3">
+                      <div>
+                        <p className="font-semibold text-slate-950">{report.title}</p>
+                        <p className="mt-1 text-sm text-slate-600">{report.coverage}</p>
+                      </div>
+                      <span className="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                        {report.format}
+                      </span>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between gap-4 text-sm text-slate-600">
+                      <p>Last generated on {report.lastGenerated}</p>
+                      <div className="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm ring-1 ring-slate-200">
+                        Updated report
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
         </main>
